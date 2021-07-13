@@ -6,4 +6,4 @@ RUN npm install -g http-server
 
 WORKDIR /project
 
-CMD ["serve.sh"]
+CMD ["sh", "/project/serve.sh"]
