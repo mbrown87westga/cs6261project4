@@ -16,7 +16,7 @@ pipeline {
             steps {
                 sh 'docker build -t testimage .'
                 sh 'docker run -dp 4200:4200 --name testcontainer -v $WORKSPACE:/project testimage'
-                sh '/project/node_modules/protractor/bin/webdriver-manager update'
+                sh '$WORKSPACE/node_modules/protractor/bin/webdriver-manager update'
                 sh 'ng e2e --devServerTarget='
             }
         }
