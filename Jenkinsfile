@@ -28,9 +28,9 @@ pipeline {
     }
     post {
         always {
-            docker stop testcontainer || true
-            docker rm testcontainer || true
-            docker image rm testimage || true
+            sh 'docker stop testcontainer || true'
+            sh 'docker rm testcontainer || true'
+            sh 'docker image rm testimage || true'
         }
     }
 }
