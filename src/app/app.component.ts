@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SelectItem } from './select-ttem';
 import { Values } from './values';
 
 @Component({
@@ -9,7 +10,7 @@ import { Values } from './values';
 export class AppComponent {
   title : string = 'Resistance Calculator';
   values : Values = new Values(0, 0, 0, 1, 1);  
-  digits : Array<Object> = [
+  digits : Array<SelectItem> = [
     {value: 0, name: 'black (0)', color: 'black'},
     {value: 1, name: 'brown (1)', color: 'brown'},
     {value: 2, name: 'red (2)', color: 'red'},
@@ -21,7 +22,7 @@ export class AppComponent {
     {value: 8, name: 'grey (8)', color: 'grey'},
     {value: 9, name: 'white (9)', color: 'white'},
   ];
-  multipliers : Array<Object> = [
+  multipliers : Array<SelectItem> = [
     {value: 0.01, name: 'silver (x0.01)', color: 'silver'},
     {value: 0.1, name: 'gold (x0.1)', color: 'gold'},
     {value: 1, name: 'black (x1)', color: 'black'},
@@ -35,7 +36,7 @@ export class AppComponent {
     {value: 100000000, name: 'grey (x100M)', color: 'grey'},
     {value: 1000000000, name: 'white (x1G)', color: 'white'},
   ];
-  tolerances : Array<Object> = [
+  tolerances : Array<SelectItem> = [
     {value: 0.05, name: 'grey (0.05%)', color: 'grey'},
     {value: 0.1, name: 'violet (0.1%)', color: 'violet'},
     {value: 0.25, name: 'blue (0.25%)', color: 'blue'},
@@ -47,8 +48,23 @@ export class AppComponent {
     {value: 20, name: 'none (20%)', color: 'none'},
   ];
 
-  toName(){
-    
+  digitToColor(value) {
+    return this.digits.find((i) => i.value === value).color;
   }
 
+  multiplierToColor(value) {
+    return this.multipliers.find((i) => i.value === value).color;
+  }
+
+  toleranceToColor(value) {
+    return this.tolerances.find((i) => i.value === value).color;
+  }
+
+  getSquareStyle(color) {
+    return {
+      'background-color': color === 'none' ? 'transparent' : color,
+      'width': '1em',
+      'display': 'inline-block'
+    };
+  }
 }
