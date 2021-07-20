@@ -1,3 +1,85 @@
 <div class="content">
   <h1>Welcome to Resistance Calculator!</h1>
+
+  <fieldset>
+    <legend>Resistance: 865M +/- 0.1%</legend>
+    <p>Select bands</p>
+    <table>
+      <tr>
+        <th colspan="3">Digits</th>
+    	<th>Multiplier</th>
+    	<th>Tolerance</th></tr>
+      <tr>
+        <td>
+        <select name="digit1" id="digit1">
+          <option value="black">black (0)</option>
+          <option value="brown">brown (1)</option>
+          <option value="red">red (2)</option>
+          <option value="orange">orange (3)</option>
+          <option value="yellow">yellow (4)</option>
+          <option value="green">green (5)</option>
+          <option value="blue">blue (6)</option>
+          <option value="violet">violet (7)</option>
+          <option value="grey">grey (8)</option>
+          <option value="white">white (9)</option>
+        </select></td><td>
+        <select name="digit2" id="digit2">
+          <option value="black">black (0)</option>
+          <option value="brown">brown (1)</option>
+          <option value="red">red (2)</option>
+          <option value="orange">orange (3)</option>
+          <option value="yellow">yellow (4)</option>
+          <option value="green">green (5)</option>
+          <option value="blue">blue (6)</option>
+          <option value="violet">violet (7)</option>
+          <option value="grey">grey (8)</option>
+          <option value="white">white (9)</option>
+        </select></td><td>
+        <select name="digit3" id="digit3">
+          <option value="black">black (0)</option>
+          <option value="brown">brown (1)</option>
+          <option value="red">red (2)</option>
+          <option value="orange">orange (3)</option>
+          <option value="yellow">yellow (4)</option>
+          <option value="green">green (5)</option>
+          <option value="blue">blue (6)</option>
+          <option value="violet">violet (7)</option>
+          <option value="grey">grey (8)</option>
+          <option value="white">white (9)</option>
+        </select></td><td>
+        <select name="multiplier" id="multiplier">
+          <option value="black">black (x1)</option>
+          <option value="brown">brown (x10)</option>
+          <option value="red">red (x100)</option>
+          <option value="orange">orange (x1K)</option>
+          <option value="yellow">yellow (x10K)</option>
+          <option value="green">green (x100k)</option>
+          <option value="blue">blue (x1M)</option>
+          <option value="violet">violet (x10M)</option>
+          <option value="grey">grey (x100M)</option>
+          <option value="white">white (x1G)</option>
+          <option value="gold">gold (x0.1)</option>
+          <option value="silver">silver (x0.01)</option>
+        </select></td><td>
+        <select name="tolerance" id="tolerance">
+          <option value="brown">brown (1%)</option>
+          <option value="red">red (2%)</option>
+          <option value="green">green (0.5%)</option>
+          <option value="blue">blue (0.25%)</option>
+          <option value="violet">violet (0.1%)</option>
+          <option value="grey">grey (0.05%)</option>
+          <option value="gold">gold (5%)</option>
+          <option value="silver">silver (10%)</option>
+          <option value="none">none (20%)</option>
+        </select></td>
+      </tr>
+    </table>
+  </fieldset>
+  
+  <fieldset>
+    <legend>Debug</legend>
+    <p>Digits: gray blue green</p>
+    <p>Multiplier: blue</p>
+    <p>Tolerance: violet</p>
+  </fieldset>
 </div>
