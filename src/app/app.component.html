@@ -2,7 +2,7 @@
   <h1>Welcome to Resistance Calculator!</h1>
 
   <fieldset>
-    <legend>Resistance: {{result}}</legend>
+    <legend>Resistance: <span id="results">{{result}}</span></legend>
     <p>Select bands</p>
     <table>
       <tr>
@@ -42,15 +42,15 @@
   <fieldset>
     <legend>Debug</legend>
     <p>Digits:
-      <span [style]="getSquareStyle(digitToColor(values.digit1))">&nbsp;</span> {{digitToColor(values.digit1)}},
-      <span [style]="getSquareStyle(digitToColor(values.digit2))">&nbsp;</span> {{digitToColor(values.digit2)}},
-      <span [style]="getSquareStyle(digitToColor(values.digit3))">&nbsp;</span> {{digitToColor(values.digit3)}}
+      <span [style]="getSquareStyle(digitToColor(values.digit1))">&nbsp;</span> <span id="digit1ColorName">{{digitToColor(values.digit1)}}</span>,
+      <span [style]="getSquareStyle(digitToColor(values.digit2))">&nbsp;</span> <span id="digit2ColorName">{{digitToColor(values.digit2)}}</span>,
+      <span [style]="getSquareStyle(digitToColor(values.digit3))">&nbsp;</span> <span id="digit3ColorName">{{digitToColor(values.digit3)}}</span>
     </p>
     <p>Multiplier:
-      <span [style]="getSquareStyle(multiplierToColor(values.multiplier))">&nbsp;</span> {{multiplierToColor(values.multiplier)}}
+      <span [style]="getSquareStyle(multiplierToColor(values.multiplier))">&nbsp;</span> <span id="multiplierColorName">{{multiplierToColor(values.multiplier)}}</span>
     </p>
     <p>Tolerance:
-      <span [style]="getSquareStyle(toleranceToColor(values.tolerance))">&nbsp;</span> {{toleranceToColor(values.tolerance)}}
+      <span [style]="getSquareStyle(toleranceToColor(values.tolerance))">&nbsp;</span> <span id="toleranceColorName">{{toleranceToColor(values.tolerance)}}</span>
     </p>
   </fieldset>
 </div>
