@@ -42,10 +42,20 @@ describe('CalculatorService', () => {
     );    
   });
 
-  it('getResult should return correct result for small value', done => {
+  it('getResult should return correct result for smallest value', done => {
     service.getResult(new Values(0,0,1,0.01,0.05)).subscribe(
       result => {
         expect(result).toBe('0.01 +/- 0.05%');
+        done();
+      }
+    );    
+  });
+
+
+  it('getResult should return correct result for largest value', done => {
+    service.getResult(new Values(9,9,9,1000000000,20)).subscribe(
+      result => {
+        expect(result).toBe('999G +/- 20%');
         done();
       }
     );    
