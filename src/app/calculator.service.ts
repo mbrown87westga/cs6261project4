@@ -8,7 +8,7 @@ export class CalculatorService {
   getResult(values: Values) : Observable<string> {
     let sum = (values.digit1 * 100 + values.digit2 * 10 + values.digit3) * values.multiplier;
 
-    let suffix : string;
+    let suffix : string = '';
     let suffixes = ['', 'K', 'M', 'G', 'T'];
     for (let i = 0; i < suffixes.length; i++) {
       let pow = Math.pow(10, (3 * i));

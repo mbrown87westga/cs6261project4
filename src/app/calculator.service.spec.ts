@@ -1,9 +1,55 @@
 import { TestBed, async } from '@angular/core/testing';
 import { CalculatorService } from './calculator.service';
+import { Values } from './values';
 
 describe('CalculatorService', () => {
   let service: CalculatorService;
   beforeEach(() => { service = new CalculatorService(); });
+
+  it('getResult should return correct result for sample input from assignment', done => {
+    service.getResult(new Values(8,6,5,1000000,0.1)).subscribe(
+      result => {
+        expect(result).toBe('865M +/- 0.1%');
+        done();
+      }
+    );    
+  });
+
+  it('getResult should return correct result for one way of encoding 1K', done => {
+    service.getResult(new Values(0,1,0,100,1)).subscribe(
+      result => {
+        expect(result).toBe('1K +/- 1%');
+        done();
+      }
+    );    
+  });
+
+  it('getResult should return correct result for another way of encoding 1K', done => {
+    service.getResult(new Values(1,0,0,10,2)).subscribe(
+      result => {
+        expect(result).toBe('1K +/- 2%');
+        done();
+      }
+    );    
+  });
+
+  it('getResult should return correct result for yet another way of encoding 1K', done => {
+    service.getResult(new Values(0,0,1,1000,0.5)).subscribe(
+      result => {
+        expect(result).toBe('1K +/- 0.5%');
+        done();
+      }
+    );    
+  });
+
+  it('getResult should return correct result for small value', done => {
+    service.getResult(new Values(0,0,1,0.01,0.05)).subscribe(
+      result => {
+        expect(result).toBe('0.01 +/- 0.05%');
+        done();
+      }
+    );    
+  });
 
   it('digits should be properly populated', () => {
     expect(service.digits).toEqual([
@@ -19,6 +65,7 @@ describe('CalculatorService', () => {
       {value: 9, name: 'white (9)', color: 'white'},
     ]);
   });
+
   it('multipliers should be properly populated', () => {
     expect(service.multipliers).toEqual([
       {value: 0.01, name: 'silver (x0.01)', color: 'silver'},
@@ -35,6 +82,7 @@ describe('CalculatorService', () => {
       {value: 1000000000, name: 'white (x1G)', color: 'white'},
     ]);
   });
+
   it('tolerances should be properly populated', () => {
     expect(service.tolerances).toEqual([
       {value: 0.05, name: 'grey (0.05%)', color: 'grey'},
