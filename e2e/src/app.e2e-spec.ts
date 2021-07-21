@@ -118,6 +118,21 @@ describe('workspace-project App', () => {
     expect(page.getToleranceColorName()).toEqual('gold');
   });
 
+  it('should set result value correctly when set to a value in the Ms', () => {
+    page.navigateTo();
+    page.setDigit1('black');
+    page.setDigit2('green');
+    page.setDigit3('green');
+    page.setMultiplier('violet');
+    page.setTolerance('blue');
+    expect(page.getResults()).toEqual('550M +/- 0.25%');
+    expect(page.getDigit1ColorName()).toEqual('black');
+    expect(page.getDigit2ColorName()).toEqual('green');
+    expect(page.getDigit3ColorName()).toEqual('green');
+    expect(page.getMultiplierColorName()).toEqual('violet');
+    expect(page.getToleranceColorName()).toEqual('blue');
+  });
+
   afterEach(async () => {
   });
 });
