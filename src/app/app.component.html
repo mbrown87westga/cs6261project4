@@ -2,7 +2,7 @@
   <h1>Welcome to Resistance Calculator!</h1>
 
   <fieldset>
-    <legend>Resistance: 865M +/- 0.1%</legend>
+    <legend>Resistance: {{result}}</legend>
     <p>Select bands</p>
     <table>
       <tr>
@@ -11,27 +11,27 @@
     	<th>Tolerance</th></tr>
       <tr>
         <td>          
-          <select type="number" [(ngModel)]="values.digit1" name="digit1" id="digit1">
+          <select type="number" [(ngModel)]="values.digit1" (ngModelChange)="onChange($event)" name="digit1" id="digit1">
             <option *ngFor="let digit of digits" [ngValue]="digit.value">{{digit.name}}</option>
           </select>
         </td>
         <td>
-          <select type="number" [(ngModel)]="values.digit2" name="digit2" id="digit2">
+          <select type="number" [(ngModel)]="values.digit2" (ngModelChange)="onChange($event)" name="digit2" id="digit2">
             <option *ngFor="let digit of digits" [ngValue]="digit.value">{{digit.name}}</option>
           </select>
         </td>
         <td>
-          <select type="number" [(ngModel)]="values.digit3" name="digit3" id="digit3">
+          <select type="number" [(ngModel)]="values.digit3" (ngModelChange)="onChange($event)" name="digit3" id="digit3">
             <option *ngFor="let digit of digits" [ngValue]="digit.value">{{digit.name}}</option>
           </select>
         </td>
         <td>
-          <select type="number" [(ngModel)]="values.multiplier" name="multiplier" id="multiplier">
+          <select type="number" [(ngModel)]="values.multiplier" (ngModelChange)="onChange($event)" name="multiplier" id="multiplier">
             <option *ngFor="let multiplier of multipliers" [ngValue]="multiplier.value">{{multiplier.name}}</option>
           </select>
         </td>
         <td>
-          <select type="number" [(ngModel)]="values.tolerance" name="tolerance" id="tolerance">
+          <select type="number" [(ngModel)]="values.tolerance" (ngModelChange)="onChange($event)" name="tolerance" id="tolerance">
             <option *ngFor="let tolerance of tolerances" [ngValue]="tolerance.value">{{tolerance.name}}</option>
           </select>
         </td>
@@ -42,15 +42,15 @@
   <fieldset>
     <legend>Debug</legend>
     <p>Digits:
-      <span [style]="getSquareStyle(digitToColor(values.digit1))">&nbsp;</span> {{digitToColor(values.digit1)}}, 
-      <span [style]="getSquareStyle(digitToColor(values.digit2))">&nbsp;</span> {{digitToColor(values.digit2)}}, 
-      <span [style]="getSquareStyle(digitToColor(values.digit3))">&nbsp;</span> {{digitToColor(values.digit3)}}, 
+      <span [style]="getSquareStyle(digitToColor(values.digit1))">&nbsp;</span> {{digitToColor(values.digit1)}},
+      <span [style]="getSquareStyle(digitToColor(values.digit2))">&nbsp;</span> {{digitToColor(values.digit2)}},
+      <span [style]="getSquareStyle(digitToColor(values.digit3))">&nbsp;</span> {{digitToColor(values.digit3)}}
     </p>
     <p>Multiplier:
-      <span [style]="getSquareStyle(multiplierToColor(values.multiplier))">&nbsp;</span> {{multiplierToColor(values.multiplier)}}, 
+      <span [style]="getSquareStyle(multiplierToColor(values.multiplier))">&nbsp;</span> {{multiplierToColor(values.multiplier)}}
     </p>
     <p>Tolerance:
-      <span [style]="getSquareStyle(toleranceToColor(values.tolerance))">&nbsp;</span> {{toleranceToColor(values.tolerance)}}, 
+      <span [style]="getSquareStyle(toleranceToColor(values.tolerance))">&nbsp;</span> {{toleranceToColor(values.tolerance)}}
     </p>
   </fieldset>
 </div>
