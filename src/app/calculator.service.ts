@@ -12,12 +12,11 @@ export class CalculatorService {
     let suffixes = ['', 'K', 'M', 'G', 'T'];
     for (let i = 0; i < suffixes.length; i++) {
       let pow = Math.pow(10, (3 * i));
-      if (sum / pow >= 1) {
-        suffix = suffixes[i];
-        sum = sum / pow;
+      if (sum / pow >= 1 && sum / pow < 1000) {
+        suffix = suffixes[i];        
+        sum = sum / pow;    
       }
     }
-    
     return of(`${sum}${suffix} +/- ${values.tolerance}%`);
   }
 
