@@ -23,7 +23,11 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Not yet implemented'
+                sh 'docker stop deployedcontainer || true'
+                sh 'docker rm deployedcontainer || true'
+                sh 'docker image rm deployedimage || true'
+                sh 'docker build -t deployedimage .'
+                sh 'docker run -dp 5000:4200 --name deployedcontainer -v $WORKSPACE:/project deployedimage'
             }
         }
     }
