@@ -63,6 +63,36 @@ describe('workspace-project App', () => {
     expect(page.getResults()).toEqual('999G +/- 20%');
   });
 
+  it('should set result value correctly when set to one possible encoding of 1K', () => {
+    page.navigateTo();
+    page.setDigit1('black');
+    page.setDigit2('black');
+    page.setDigit3('brown');
+    page.setMultiplier('orange');
+    page.setTolerance('brown');
+    expect(page.getResults()).toEqual('1K +/- 1%');
+  });
+
+  it('should set result value correctly when set to another possible encoding of 1K', () => {
+    page.navigateTo();
+    page.setDigit1('black');
+    page.setDigit2('brown');
+    page.setDigit3('black');
+    page.setMultiplier('red');
+    page.setTolerance('red');
+    expect(page.getResults()).toEqual('1K +/- 2%');
+  });
+
+  it('should set result value correctly when set to yet another possible encoding of 1K', () => {
+    page.navigateTo();
+    page.setDigit1('brown');
+    page.setDigit2('black');
+    page.setDigit3('black');
+    page.setMultiplier('brown');
+    page.setTolerance('gold');
+    expect(page.getResults()).toEqual('1K +/- 5%');
+  });
+
   afterEach(async () => {
   });
 });
