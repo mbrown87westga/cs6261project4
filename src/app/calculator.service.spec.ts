@@ -51,11 +51,19 @@ describe('CalculatorService', () => {
     );    
   });
 
-
   it('getResult should return correct result for largest value', done => {
     service.getResult(new Values(9,9,9,1000000000,20)).subscribe(
       result => {
         expect(result).toBe('999G +/- 20%');
+        done();
+      }
+    );    
+  });
+
+  it('getResult should return correct result for value in the Ms', done => {
+    service.getResult(new Values(0,5,5,1000000,5)).subscribe(
+      result => {
+        expect(result).toBe('55M +/- 5%');
         done();
       }
     );    
